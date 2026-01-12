@@ -1,0 +1,10 @@
+# Массив точек
+x_values = [start_x + i * (end_x - start_x) / num_points for i in range(num_points)]
+
+# Цикл для вычисления второй производной
+for x in x_values:
+    if abs(h) > abs(x):  # Проверяем крайние точки, где центрированная схема неприменима
+        print(f"В точке {x:.3f}: Вторая производная неопределенна.")
+    else:
+        second_derivative = (f(x + h) - 2 * f(x) + f(x - h)) / h**2
+        print(f"В точке {x:.3f}: Вторая производная ≈ {second_derivative:.8f}")
